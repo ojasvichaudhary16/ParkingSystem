@@ -7,52 +7,87 @@ import static org.junit.Assert.assertEquals;
 
 public class ParkingLotTest {
     private  ParkingManagement parkingManagement;
+
     @Before
     public void setUp() {
-        parkingManagement=new ParkingManagement();
+          parkingManagement = new ParkingManagement();
     }
 
     @Test
     public void shouldAllowFirstCarParking() {
 
-        String result=parkingManagement.canPark();
+        String status= parkingManagement.park();
 
-        assertEquals("You Can Park", result);
+        assertEquals("You Can Park", status);
     }
 
     @Test
     public void shouldAllowSecondCarParking() {
 
-        String result=parkingManagement.canPark();
+        String status=parkingManagement.park();
 
-        assertEquals("You Can Park", result);
+        assertEquals("You Can Park", status);
     }
 
     @Test
     public void shouldAllowThirdCarParking() {
 
-        String result=parkingManagement.canPark();
+        String status=parkingManagement.park();
 
-        assertEquals("You Can Park", result);
+        assertEquals("You Can Park", status);
     }
 
     @Test
-    public void shouldAllowForthCarParking() {
+    public void shouldAllowFourthCarParking() {
 
-        String result=parkingManagement.canPark();
+        String status=parkingManagement.park();
 
-        assertEquals("You Can Park", result);
+        assertEquals("You Can Park", status);
     }
 
     @Test
     public void shouldNotAllowFifthCarParking() {
+        String status=parkingManagement.park();
 
-        String result=parkingManagement.canPark();
-
-        assertEquals("Parking Full", result);
+        assertEquals("Parking Full", status);
     }
 
+    @Test
+    public void shouldAllowFirstDepart(){
+        String status = parkingManagement.depart();
 
+        assertEquals("Car Departed", status);
+
+    }
+
+    @Test
+    public void shouldAllowSecondDepart(){
+        String status = parkingManagement.depart();
+        
+        assertEquals("Car Departed", status);
+        
+    }
+
+    @Test
+    public void shouldAllowThirdDepart() {
+        String status = parkingManagement.depart();
+
+        assertEquals("Car Departed", status);
+    }
+
+    @Test
+    public void shouldAllowFourthDepart() {
+        String status = parkingManagement.depart();
+
+        assertEquals("Car Departed", status);
+    }
+
+    @Test
+    public void shouldNotAllowFifthDepart() {
+        String status = parkingManagement.depart();
+
+        assertEquals("Parking Empty", status);
+    }
 
 
 }
